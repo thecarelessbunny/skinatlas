@@ -163,6 +163,9 @@ function ImageSlot({
         <p className="text-xs text-ink-soft uppercase tracking-[0.2em] mt-1">
           {sublabel}
         </p>
+        <p className="text-[11px] text-ink-soft/70 italic mt-2">
+          Image Source: DermNet NZ
+        </p>
       </figcaption>
     </figure>
   );
