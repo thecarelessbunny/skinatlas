@@ -1,6 +1,6 @@
 import type { Condition } from './types';
 
-// 10 conditions, chosen for the most striking visible difference between
+// 11 conditions, chosen for the most striking visible difference between
 // Fitzpatrick I–III and IV–VI presentations. Listed alphabetically.
 export const conditions: Condition[] = [
   {
@@ -31,6 +31,14 @@ export const conditions: Condition[] = [
       'The most common skin cancer in the world, arising from basal keratinocytes at the bottom of the epidermis. Driven primarily by cumulative UV damage. Almost always slow-growing and locally destructive rather than metastatic, but can cause significant disfigurement if neglected. In darker skin, more than half of cases are pigmented, which leads to delayed diagnosis when lesions are mistaken for moles or seborrheic keratoses.',
   },
   {
+    slug: 'guttate-psoriasis',
+    name: 'Guttate Psoriasis',
+    summary:
+      'Salmon-pink, scaly droplet papules on lighter skin. Violaceous to hyperpigmented in skin of color, with marked post-inflammatory pigment lingering long after the rash itself clears.',
+    description:
+      'An acute form of psoriasis that erupts as a sudden shower of small, drop-shaped scaly papules (guttate is Latin for "drop") scattered across the trunk, arms, and legs. Classically follows a streptococcal throat infection by one to three weeks and most often affects children and young adults. It may be the first presentation of psoriasis, a flare in someone with established disease, or resolve completely on its own. A meaningful subset of patients later go on to develop chronic plaque psoriasis.',
+  },
+  {
     slug: 'melanoma',
     name: 'Melanoma',
     summary:
@@ -49,10 +57,11 @@ export const conditions: Condition[] = [
   {
     slug: 'psoriasis',
     name: 'Psoriasis',
+    aliases: ['Plaque Psoriasis'],
     summary:
-      'Salmon-pink plaques classically. Violaceous or hyperpigmented in skin of color, with persistent post-inflammatory pigment after clearance.',
+      'Salmon-pink, silvery-scaled plaques on lighter skin. Violaceous to gray-brown in skin of color, with thicker scale and persistent post-inflammatory pigment after clearance.',
     description:
-      'A chronic, immune-mediated disease in which the immune system accelerates skin cell turnover, producing thick, well-demarcated, scaly plaques. Affects roughly two to three percent of people worldwide. Carries elevated risk of psoriatic arthritis, cardiovascular disease, depression, and metabolic syndrome. It is a systemic disease, not just a skin one.',
+      'A chronic, immune-mediated disease in which the immune system accelerates skin cell turnover, producing thick, well-demarcated, scaly plaques most commonly on the scalp, elbows, knees, and lower back. Plaque psoriasis is the most common form, accounting for roughly nine in ten cases. Affects two to three percent of people worldwide and carries elevated risk of psoriatic arthritis, cardiovascular disease, depression, and metabolic syndrome. It is a systemic disease, not just a skin one.',
   },
   {
     slug: 'rosacea',

@@ -17,6 +17,7 @@ Supported extensions: `.jpg`, `.jpeg`, `.png`, `.webp`
 - `acne-vulgaris/`
 - `atopic-dermatitis/`
 - `basal-cell-carcinoma/`
+- `guttate-psoriasis/`
 - `melanoma/`
 - `melasma/`
 - `psoriasis/`
