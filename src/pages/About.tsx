@@ -57,9 +57,9 @@ export function About() {
               and study.
             </p>
             <p>
-              This is a personal project built, written, and curated
-              independently as a way to deepen my own learning while creating a
-              resource that may also help others studying dermatology.
+              This is a personal project, started as a way to deepen my own
+              learning while creating a resource that may also help others
+              studying dermatology.
             </p>
           </div>
 
