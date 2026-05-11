@@ -142,11 +142,11 @@ function ImageSlot({
       className="rounded-2xl overflow-hidden border bg-paper"
       style={{ borderColor: 'var(--color-rule)' }}
     >
-      <div className="aspect-square overflow-hidden">
+      <div className="aspect-square overflow-hidden bg-paper-2 flex items-center justify-center">
         <img
           src={src}
           alt={`${label} presentation`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           onError={() => {
             if (extIndex < EXTENSIONS.length - 1) {
               setExtIndex(extIndex + 1);
