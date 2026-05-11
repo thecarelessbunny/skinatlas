@@ -8,14 +8,32 @@ export function Home() {
   const [focused, setFocused] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const [translateY, setTranslateY] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const searchBoxRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 767px)');
+    const update = () => setIsMobile(mql.matches);
+    update();
+    mql.addEventListener('change', update);
+    return () => mql.removeEventListener('change', update);
+  }, []);
+
   // When the user focuses the search, gently slide the search bar up to sit
   // just below the nav, and fade out the hero. Reverse on close.
+  // On mobile, skip the transform — the iOS keyboard does its own viewport
+  // shuffling and the combination pushes the input above the visible area.
+  // Instead the layout collapses the hero so the search bar is already near
+  // the top of the page; we just scroll to the top.
   useEffect(() => {
     if (focused && searchBoxRef.current) {
+      if (isMobile) {
+        setTranslateY(0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
       const rect = searchBoxRef.current.getBoundingClientRect();
       const headerEl = document.querySelector('header');
       // Use offsetHeight (static) instead of viewport position so we always
@@ -27,7 +45,7 @@ export function Home() {
     } else {
       setTranslateY(0);
     }
-  }, [focused]);
+  }, [focused, isMobile]);
 
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
@@ -77,7 +95,13 @@ export function Home() {
   }
 
   return (
-    <section className="min-h-[80vh] flex items-center justify-center px-6 py-16">
+    <section
+      className={`flex justify-center px-6 ${
+        isMobile && focused
+          ? 'items-start pt-6 pb-16 min-h-[60vh]'
+          : 'items-center py-16 min-h-[80vh]'
+      }`}
+    >
       <div
         ref={wrapperRef}
         className="w-full max-w-4xl"
@@ -86,9 +110,12 @@ export function Home() {
           transition: 'transform 360ms cubic-bezier(0.32, 0.72, 0, 1)',
         }}
       >
-        {/* Centered intro — fades out when search is focused */}
+        {/* Centered intro — fades out when search is focused. On mobile we
+            also collapse it out of flow so the search bar lands near the top. */}
         <div
-          className="text-center mb-12 md:mb-16 max-w-2xl mx-auto"
+          className={`text-center mb-12 md:mb-16 max-w-2xl mx-auto ${
+            isMobile && focused ? 'hidden' : ''
+          }`}
           style={{
             opacity: focused ? 0 : 1,
             transition: 'opacity 220ms ease',
@@ -125,7 +152,9 @@ export function Home() {
 
         {/* Prompt — also fades out */}
         <p
-          className="text-center text-sm uppercase tracking-[0.25em] text-coral-500 mb-4 font-medium"
+          className={`text-center text-sm uppercase tracking-[0.25em] text-coral-500 mb-4 font-medium ${
+            isMobile && focused ? 'hidden' : ''
+          }`}
           style={{
             opacity: focused ? 0 : 1,
             transition: 'opacity 220ms ease',
