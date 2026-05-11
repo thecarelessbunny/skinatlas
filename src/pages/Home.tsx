@@ -139,7 +139,7 @@ export function Home() {
             Skin Atlas
           </h1>
           <p className="font-serif text-xl md:text-2xl text-ink leading-[1.5]" style={{ fontWeight: 400 }}>
-            Most dermatology textbooks were written from a single skin tone.
+            Most dermatology textbooks were written with limited skin tone representation.
             See how common conditions actually present across the full{' '}
             <span className="text-coral-500" style={{ fontWeight: 500 }}>Fitzpatrick range</span>{' '}
             — side by side, no narrative needed.
