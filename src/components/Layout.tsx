@@ -38,7 +38,7 @@ export function Layout() {
               Skin Atlas
             </div>
             <div className="mt-1 text-[10px] uppercase tracking-[0.25em] text-ink-soft">
-              Dermatology Across Skin Tones | A Visual Reference
+              Dermatology across skin tones
             </div>
           </Link>
           <nav className="justify-self-end flex items-center gap-7">
