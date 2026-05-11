@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-paper: #ffffff;
+  --color-paper-2: #f3f5f7;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #4f5654;
+  --color-ink-soft: #7e8584;
+  --color-rule: #e3e6ea;
+
+  --color-forest-50: #f0f5f3;
+  --color-forest-100: #d6e3df;
+  --color-forest-300: #6f9089;
+  --color-forest-500: #2f5d54;
+  --color-forest-600: #1f4d46;
+  --color-forest-700: #173a35;
+  --color-forest-900: #0c211e;
+
+  --color-coral-100: #fbe5db;
+  --color-coral-300: #ee9a7c;
+  --color-coral-500: #d97757;
+  --color-coral-600: #b85f44;
+
+  --color-sand: #e8dfd0;
+  --color-sand-dark: #c8b89a;
+}
+
+@layer base {
+  html {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--color-paper);
+    margin: 0;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+  }
+
+  ::selection {
+    background: var(--color-forest-600);
+    color: var(--color-paper);
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@layer components {
+  .container-prose {
+    @apply mx-auto px-6 md:px-10;
+    max-width: 78rem;
+  }
+
+  .rule {
+    @apply border-t;
+    border-color: var(--color-rule);
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium tracking-wide uppercase transition cursor-pointer;
+    background: var(--color-paper-2);
+    color: var(--color-ink-muted);
+    border: 1px solid var(--color-rule);
+  }
+
+  .chip:hover {
+    border-color: var(--color-forest-300);
+    color: var(--color-forest-600);
+  }
+
+  .chip-active {
+    background: var(--color-forest-600) !important;
+    color: var(--color-paper) !important;
+    border-color: var(--color-forest-600) !important;
+  }
+
+  .fitz-dot {
+    @apply inline-block rounded-full;
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-paper); }
+::-webkit-scrollbar-thumb { background: var(--color-sand-dark); border-radius: 999px; border: 2px solid var(--color-paper); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-forest-300); }
