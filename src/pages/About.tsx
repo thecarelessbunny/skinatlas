@@ -44,11 +44,9 @@ export function About() {
               >
                 Skin Atlas
               </span>{' '}
-              after a clinical experience in dermatology where I saw how
-              different the same skin condition could appear across different
-              skin tones. I also became aware of a gap in dermatology education:
-              many textbooks and learning resources overwhelmingly feature
-              conditions on lighter skin.
+              after a clinical experience in dermatology where I saw how the
+              same skin condition could appear significantly different depending
+              on skin tone.
             </p>
             <p>
               Skin Atlas is a simple visual reference designed to display
